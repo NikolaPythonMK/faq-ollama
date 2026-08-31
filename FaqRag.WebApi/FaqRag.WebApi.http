@@ -1,0 +1,39 @@
+@FaqRag.WebApi_HostAddress = http://localhost:5286
+
+POST {{FaqRag.WebApi_HostAddress}}/api/embedding
+Content-Type: application/json
+
+{
+  "question": "How do I reset my password?"
+}
+
+###
+
+POST {{FaqRag.WebApi_HostAddress}}/api/faq/create
+Content-Type: application/json
+
+[
+  {
+    "question": "How do I reset my password?",
+    "answer": "Use the Forgot Password option on the login page."
+  }
+]
+
+###
+
+POST {{FaqRag.WebApi_HostAddress}}/api/faq/search
+Content-Type: application/json
+
+{
+  "query": "I forgot my password",
+  "limit": 3
+}
+
+###
+
+POST {{FaqRag.WebApi_HostAddress}}/api/faq/ask/stream
+Content-Type: application/json
+
+{
+  "question": "What should I do if I forgot my password?"
+}
